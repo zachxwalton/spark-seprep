@@ -33,7 +33,7 @@ ssh -i ~/.ssh/id_rsa YOURNAME@34.138.147.23
 6. Run the following:
 
 ```bash
-curl -o ./commandline-practice/joke.sh https://raw.githubusercontent.com/DS219/spark-seprep/main/assignments/joke.sh
+curl -o ./commandline-practice/joke.sh https://raw.githubusercontent.com/DS219/spark-seprep/refs/heads/main/assignments/joke.sh
 ```
 
 6. Use chmod to make it possible to run the command `/home/YOURNAME/commandline-practice/joke.sh`
