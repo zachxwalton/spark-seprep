@@ -16,14 +16,14 @@ Note: Windows users, please ensure you do this assignment using WSL.
    **Note: Replace `YOUR_NAME` with your actual BU username**
 
 ```bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub YOUR_NAME@34.75.235.169
+ssh-copy-id -i ~/.ssh/id_rsa.pub YOUR_NAME@34.138.25.183
 # password: buedu
 ```
 
-2. SSH into the machine running at IP address `34.75.235.169`.
+2. SSH into the machine running at IP address `34.138.25.183`.
 
 ```bash
-ssh -i ~/.ssh/id_rsa YOURNAME@34.75.235.169
+ssh -i ~/.ssh/id_rsa YOURNAME@34.138.25.183
 ```
 
 3. Create a new directory `commandline-practice`.
