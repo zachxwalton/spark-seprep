@@ -48,6 +48,9 @@ submitting pull requests, and establishing an upstream repository.
    - Again, Use the [example](../student-work/assignment-4/urvashimohnani.md) to help you. You can view the `raw` format to see the text un-rendered.
 
    ```bash
+   git checkout main
+   git fetch upstream
+   git rebase upstream/main
    git checkout -b assignment-4
    cd student-work/assignment-4/
    touch yourname.md
