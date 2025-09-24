@@ -78,7 +78,7 @@ submitting pull requests, and establishing an upstream repository.
 
 **Grading Rubric**
 
-- Contents of file, commit message, and correctly open a pull request - 6 points
+- Contents and syntax of file, commit message, correct branch usage, and pull request creation - 6 points
 - Correctly fill out the form - 4 points
 
 This assignment not only enhances GitHub collaboration skills but also emphasizes effective communication and teamwork. If you have questions or need clarification, contact your instructor. Good luck and happy collaborating!
