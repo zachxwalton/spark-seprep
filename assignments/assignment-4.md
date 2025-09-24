@@ -48,7 +48,7 @@ submitting pull requests, and establishing an upstream repository.
    - Again, Use the [example](../student-work/assignment-4/urvashimohnani.md) to help you. You can view the `raw` format to see the text un-rendered.
 
    ```bash
-   git checkout -b assignment-4-branch
+   git checkout -b assignment-4
    cd student-work/assignment-4/
    touch yourname.md
    # Open the document, add content, and save.
@@ -56,7 +56,7 @@ submitting pull requests, and establishing an upstream repository.
 
    git add yourname.md
    git commit -m "[your name]: Assignment 4"
-   git push origin assignment-4-branch
+   git push origin assignment-4
    ```
 
 **5. Final PR to Main Upstream:**
