@@ -45,7 +45,7 @@ submitting pull requests, and establishing an upstream repository.
    - Underneath that, add a short example of your code, using "triple backticks" `````
    - Add a third header with `### Code Explanation` to describe the code and how to run it.
    - Make sure to preview your file to ensure the markdown format you used is correct (spaces and new lines are important in markdown).
-   - Again, Use the [example](../student-work/urvashimohnani.md) to help you. You can view the `raw` format to see the text un-rendered.
+   - Again, Use the [example](../student-work/assignment-4/urvashimohnani.md) to help you. You can view the `raw` format to see the text un-rendered.
 
    ```bash
    git checkout -b assignment-4-branch
