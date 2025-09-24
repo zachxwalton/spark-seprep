@@ -61,7 +61,7 @@ submitting pull requests, and establishing an upstream repository.
 
 **5. Final PR to Main Upstream:**
 
-   - Submit a pull request to the main upstream repository (`DS219/spark-seprep`) containing the changes to `student-work/yourname.md`.
+   - Submit a pull request to the main upstream repository (`DS219/spark-seprep`) containing the changes to `student-work/assignment-4/yourname.md`.
    - Fill out this form [https://forms.gle/CNgVQ8n4WPACyK9w5](https://forms.gle/LYEd5ux6tagce53D7) to complete your submission!
 
 **Important Notes:**
