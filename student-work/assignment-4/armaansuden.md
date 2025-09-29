@@ -12,6 +12,6 @@ def roll_dice(n=2):
 
 dice, total = roll_dice(2)
 print(f"You rolled a {dice} → Total = {total}")
-
+```
 ### Code Explanation:
 This is a python code which rolls a dice, it uses the random function from python to do this.
