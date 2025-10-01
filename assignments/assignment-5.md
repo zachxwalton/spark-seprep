@@ -74,17 +74,21 @@ git checkout -b assignment-5-branch
 
 2. **Create your notebook:**
 ```bash
-mkdir student-work/assignment-5/FIRSTNAME-LASTNAME
-cd student-work/assignment-5/FIRSTNAME-LASTNAME
+cd student-work/assignment-5
 touch assignment5-FIRSTNAMELASTNAME.ipynb
 ```
 
 3. **Add and push:**
+
+Make sure to add a descriptive commit message telling us exactly what your notebook does. You will loose points if the commit message is not detailed about your work.
 ```bash
 git add assignment5-FIRSTNAMELASTNAME.ipynb
-git commit -m "Add Assignment 5 by <Your Name>"
+git commit
 git push origin assignment-5-branch
 ```
+
+
+You can view an example notebook [here](https://github.com/DS219/spark-seprep/blob/main/student-work/assignment-5/assignment5-template.ipynb)
 
 4. **Open a Pull Request (PR)** from `assignment-5-branch` to `main`.
 
