@@ -49,7 +49,7 @@ To ensure smooth collaboration and code quality, please follow these guidelines:
   ```bash
   git fetch upstream
   git checkout main
-  git merge upstream/main
+  git rebase upstream/main
   ```
 - This helps prevent merge conflicts and ensures you are working on the latest code.
 
