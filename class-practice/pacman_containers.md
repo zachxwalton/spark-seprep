@@ -2,7 +2,7 @@
 
 ```
 cd /your/git/repos
-git clone [git@github.com:yourname/mongo-pacman.git](https://github.com/sallyom/mongo-pacman.git)
+git clone git@github.com:yourname/mongo-pacman.git
 cd mongo-pacman
 ```
 
