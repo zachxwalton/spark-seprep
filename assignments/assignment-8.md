@@ -88,27 +88,9 @@ If your script is interactive and requires user input, you need to enable the in
 podman run -it [image-name]
 ```
 
-Add your container image name to this [Google Doc](https://docs.google.com/document/d/1HTjs2st50iv5VkuVkwSVurrnVDVRcunfEa7SWRVE2mA/edit?usp=sharing)
-Make sure it is the full qualified image name in the format **docker.io/[your-username]/[your-imagename]**. **Include what Operating System this image
-was built on, either Windows or Mac**
-
-Example
-```
-Sally O’Malley: Mac
-* docker.io/somalley/joke:latest
-* [optional, add note with run cmd]
-    * podman run docker.io/somalley/joke:arm
-
-Sally O’Malley: Windows
-* docker.io/somalley/joke:latest
-* [optional, add note with run cmd]
-    * podman run docker.io/somalley/joke:amd64
-
-```
-
 ## Run a classmate's container image locally
 
-Look through the doc above and pick a container image that one of your classmate's built. Choose an image that was built on the same Operating System
+Look through [this spreadsheet](https://docs.google.com/spreadsheets/d/10JH9RRIW_FRdg_EmCxwuws6HLEcX0VK3-1kBfHA8zeQ/edit?usp=sharing) and pick a container image that one of your classmate's built. Choose an image that was built on the same Operating System
 as yours. Pull it down and run it locally on your machine.
 
 ```
@@ -116,7 +98,9 @@ podman pull [classmate-image]
 podman run [classmate-image]
 ```
 
-Create your PR on Github and answer the questions in this [form](https://forms.gle/UXdNEspY1rvPFhpx9) and hit submit!
+Answer the questions in this [form](https://forms.gle/WY3RrwCdKKR9ddmC8) and hit submit! Your response will be viewable to the class, this populates the spreadsheet above from which you choose your classmates' images to try out.
+
+## Create a Pull Request
 
 **Note:** Always check the files that you are comitting in your working tree before actually comitting. For this assignment, you only need 2
 files - your Containerfile and your script. Do not commit any extra files. The following command will show you your working tree always.
