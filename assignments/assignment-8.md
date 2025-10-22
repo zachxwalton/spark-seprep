@@ -91,7 +91,7 @@ podman run -it [image-name]
 ## Run a classmate's container image locally
 
 Look through [this spreadsheet](https://docs.google.com/spreadsheets/d/10JH9RRIW_FRdg_EmCxwuws6HLEcX0VK3-1kBfHA8zeQ/edit?usp=sharing) and pick a container image that one of your classmate's built. Choose an image that was built on the same Operating System
-as yours. Pull it down and run it locally on your machine.
+as yours. When you fill out the form below, your image will also be listed, so your classmates can choose to try your image. Pull down your classmate's image and run it locally on your machine.
 
 ```
 podman pull [classmate-image]
