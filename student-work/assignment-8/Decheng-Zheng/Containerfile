@@ -1,0 +1,11 @@
+# Use a lightweight Linux image
+FROM alpine
+
+# Copy the script into the container
+COPY info.sh .
+
+# Make it executable
+RUN chmod +x info.sh
+
+# Set the command to run it
+CMD ./info.sh
