@@ -1,0 +1,4 @@
+FROM python:3.11-slim
+COPY multiply.py .
+RUN chmod +x multiply.py
+CMD ["python3", "./multiply.py"]
