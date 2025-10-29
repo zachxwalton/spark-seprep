@@ -1,0 +1,5 @@
+FROM alpine:latest
+COPY script.py .
+RUN apk add python3
+CMD python script.py
+
