@@ -1,0 +1,6 @@
+FROM alpine
+COPY palindrome.py . 
+RUN chmod +x palindrome.py
+RUN apk add curl
+CMD /Users/katelynzhuo/Desktop/spark-seprep/student-work/assignment-8/katelyn-zhuo/palindrome.py
+    
