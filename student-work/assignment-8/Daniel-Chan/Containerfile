@@ -1,0 +1,4 @@
+FROM python:3.11-alpine
+WORKDIR /app
+COPY random_num_generator.py .
+CMD ["python3", "random_num_generator.py"]
