@@ -1,0 +1,5 @@
+FROM  python:3.10-slim
+
+COPY hello_container.py .
+
+CMD ["python3", "hello_container.py"]
