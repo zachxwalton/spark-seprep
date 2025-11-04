@@ -1,0 +1,4 @@
+FROM python:3.10-slim
+WORKDIR /app
+COPY add_2_numbers.py .
+CMD ["python", "add_2_numbers.py"]
