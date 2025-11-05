@@ -1,0 +1,10 @@
+FROM alpine:latest  
+   
+RUN apk add --no-cache bash
+
+COPY  helloworld.sh .
+
+RUN chmod +x helloworld.sh
+
+CMD ./helloworld.sh
+
