@@ -1,0 +1,4 @@
+FROM python:3.12-alpine
+WORKDIR /app
+COPY missing_number.py .
+CMD ["python", "missing_number.py"]
