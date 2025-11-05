@@ -1,0 +1,15 @@
+# Use a lightweight base image
+FROM python:3.9-slim
+
+# Copy the script into the container
+COPY valid_anagram.py /app/valid_anagram.py
+
+# Set the working directory
+WORKDIR /app
+
+# Make sure Python can execute the file
+RUN chmod +x valid_anagram.py
+
+# Set the command that runs when the container starts
+CMD ["python3", "valid_anagram.py"]
+
