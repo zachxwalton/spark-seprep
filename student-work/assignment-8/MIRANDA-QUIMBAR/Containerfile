@@ -1,0 +1,4 @@
+FROM python:3.11-slim
+COPY script.py .
+RUN chmod +x script.py
+CMD ./script.py
