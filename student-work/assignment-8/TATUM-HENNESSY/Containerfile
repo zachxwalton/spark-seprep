@@ -1,0 +1,7 @@
+FROM python:3.11-slim
+
+COPY joke.py .
+
+RUN chmod +x joke.py
+
+CMD ["python3", "joke.py"]
