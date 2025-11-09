@@ -1,0 +1,6 @@
+# Use a minimal Python image as the base
+FROM python:3.12-alpine
+
+COPY two_sum.py . 
+
+CMD ["python", "./two_sum.py"]
