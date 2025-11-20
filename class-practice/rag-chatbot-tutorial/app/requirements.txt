@@ -1,3 +1,9 @@
+# Install CPU-only PyTorch first to avoid downloading 3.5GB+ of unused NVIDIA CUDA packages
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+torchvision
+torchaudio
+
 langchain-openai==0.1.7
 langchain==0.1.20
 langchain-postgres==0.0.6

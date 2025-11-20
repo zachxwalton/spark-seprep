@@ -50,8 +50,9 @@ def split_docs(raw_documents):
 
 
 def read_file(file):
-    """Read uploaded PDF or text file"""
+    """Read uploaded PDF, text, or markdown file"""
     file_type = file.type
+    file_name = file.name.lower()
 
     if file_type == "application/pdf":
         temp = tempfile.NamedTemporaryFile(delete=False, suffix=".pdf")
@@ -59,8 +60,14 @@ def read_file(file):
             f.write(file.getvalue())
         loader = PyPDFLoader(temp.name)
 
-    elif file_type == "text/plain":
+    elif file_type == "text/plain" or file_name.endswith('.txt'):
         temp = tempfile.NamedTemporaryFile(delete=False, suffix=".txt")
+        with open(temp.name, "wb") as f:
+            f.write(file.getvalue())
+        loader = TextLoader(temp.name)
+
+    elif file_type == "text/markdown" or file_name.endswith('.md'):
+        temp = tempfile.NamedTemporaryFile(delete=False, suffix=".md")
         with open(temp.name, "wb") as f:
             f.write(file.getvalue())
         loader = TextLoader(temp.name)
@@ -82,41 +89,52 @@ st.markdown("Upload a document and ask questions about it!")
 with st.sidebar:
     st.header("📄 Document Upload")
 
-    file = st.file_uploader(
-        label="Upload a PDF or text file",
-        type=["txt", "pdf"],
-        help="Upload a document to populate the knowledge base"
+    files = st.file_uploader(
+        label="Upload PDF, text, or markdown files",
+        type=["txt", "pdf", "md"],
+        accept_multiple_files=True,
+        help="Upload one or more documents to populate the knowledge base"
     )
 
-    if file is not None:
-        st.success(f"✅ Loaded: {file.name}")
+    if files:
+        st.success(f"✅ Loaded {len(files)} file(s):")
+        for f in files:
+            st.write(f"  • {f.name}")
 
-        # Add a button to process the file
-        if st.button("Process Document"):
-            with st.spinner("Processing document..."):
+        # Add a button to process the files
+        if st.button("Process Documents"):
+            with st.spinner("Processing documents..."):
                 try:
-                    # Read and split the document
-                    raw_docs = read_file(file)
-                    documents = split_docs(raw_docs)
+                    all_documents = []
 
-                    st.info(f"Split into {len(documents)} chunks")
+                    # Process each file
+                    for file in files:
+                        st.info(f"Processing {file.name}...")
+                        raw_docs = read_file(file)
+                        docs = split_docs(raw_docs)
+                        all_documents.extend(docs)
 
-                    # Populate the vector database
-                    vdb.populate_db(documents)
+                    st.info(f"Total: {len(all_documents)} chunks from {len(files)} file(s)")
+
+                    # Populate the vector database with all documents
+                    vdb.populate_db(all_documents)
                     st.session_state['db_populated'] = True
-                    st.session_state['current_file'] = file.name
-                    st.success("Document processed and ready for questions!")
+                    st.session_state['file_count'] = len(files)
+                    st.session_state['file_names'] = [f.name for f in files]
+                    st.success("Documents processed and ready for questions!")
 
                 except Exception as e:
-                    st.error(f"Error processing document: {e}")
+                    st.error(f"Error processing documents: {e}")
                     st.session_state['db_populated'] = False
 
     st.divider()
     st.markdown("### About")
     st.markdown("""
     This RAG (Retrieval Augmented Generation) chatbot:
+    - Supports **PDF, TXT, and Markdown** files
+    - Accepts **multiple file uploads**
     - Uses **pgvector** for document storage
-    - Runs **Phi4-mini-instruct** via ramalama
+    - Runs **Phi4-mini** via ramalama
     - Retrieves relevant context before answering
     """)
 
@@ -159,6 +177,13 @@ if prompt := st.chat_input("Ask a question about your document..."):
 
                     # Get retriever
                     retriever = vdb.get_retriever()
+
+                    # Test retrieval to see what context is being used
+                    retrieved_docs = retriever.get_relevant_documents(prompt)
+                    print(f"\n📚 Retrieved {len(retrieved_docs)} relevant chunks:")
+                    for i, doc in enumerate(retrieved_docs, 1):
+                        preview = doc.page_content[:100].replace('\n', ' ')
+                        print(f"  {i}. {preview}...")
 
                     # Create RAG prompt
                     rag_prompt = ChatPromptTemplate.from_template("""Answer the question based only on the following context:

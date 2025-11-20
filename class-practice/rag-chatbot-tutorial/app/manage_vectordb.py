@@ -40,6 +40,7 @@ class VectorDB:
 
     def get_retriever(self):
         """Get a retriever for an existing collection"""
+        print(f"🔍 Getting retriever for collection: {self.collection_name}")
         embeddings = SentenceTransformerEmbeddings(model_name=self.embedding_model)
 
         db = PGVector(
@@ -48,7 +49,9 @@ class VectorDB:
             embedding_function=embeddings
         )
 
-        return db.as_retriever(search_kwargs={"k": 4})
+        retriever = db.as_retriever(search_kwargs={"k": 4})
+        print(f"✅ Retriever ready - will fetch top 4 relevant chunks")
+        return retriever
 
     def clear_db(self):
         """Clear the vector database collection"""

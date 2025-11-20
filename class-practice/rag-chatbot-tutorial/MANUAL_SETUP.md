@@ -183,7 +183,7 @@ podman run -d \
     --pod rag-chatbot \
     --name rag-chatbot-app \
     -e MODEL_ENDPOINT=http://127.0.0.1:8888 \
-    -e MODEL_NAME=phi4-mini-instruct \
+    -e MODEL_NAME=library/phi4-mini \
     -e POSTGRES_HOST=127.0.0.1 \
     -e POSTGRES_PORT=5432 \
     -e POSTGRES_DB=ragdb \
@@ -305,44 +305,6 @@ By following these manual steps, you now understand:
 
 ---
 
-## Troubleshooting
-
-### PostgreSQL won't start
-
-Check logs:
-```bash
-podman logs rag-chatbot-pgvector
-```
-
-Common issue: Port 5432 already in use. Stop local PostgreSQL or use a different port.
-
-### Model server stuck downloading
-
-Check logs:
-```bash
-podman logs rag-chatbot-model
-```
-
-This is normal on first run. The model is ~2.4GB. Be patient!
-
-### Chatbot can't connect to model
-
-Make sure model server is ready:
-```bash
-curl http://localhost:8888/v1/models
-```
-
-If it fails, wait longer or check model logs.
-
-### Port 8501 already in use
-
-Another app is using port 8501. Either:
-- Stop that app
-- Change the port in step 3: `--publish 8502:8501`
-- Then access at `http://localhost:8502`
-
----
-
 ## Cleanup and Restart
 
 To completely start over:
@@ -352,9 +314,11 @@ To completely start over:
 podman pod rm rag-chatbot --force
 
 # Remove built image (optional)
+# Don't remove if you are going to run again
 podman rmi rag-chatbot-app:latest
 
 # Remove model volume to free space (optional)
+# Don't remove if you are going to run again
 podman volume rm rag-models
 
 # Now follow steps 2-7 again
@@ -403,17 +367,5 @@ podman volume ls
 # Inspect volume
 podman volume inspect rag-models
 ```
-
----
-
-## Comparison: Manual vs Automated
-
-| Task | Manual | Using start.sh |
-|------|--------|---------------|
-| Steps to run | 9 separate commands | 1 command |
-| Learning value | High - see every detail | Medium - read the script |
-| Error handling | Manual troubleshooting | Built-in checks |
-| Time | 15 min (reading + typing) | 2 min (just waiting) |
-| Best for | Learning, debugging | Production, demos |
 
 **Recommendation**: Do the manual setup once to learn, then use `start.sh` for convenience!

@@ -23,7 +23,7 @@ fi
 POSTGRES_USER="${POSTGRES_USER:-postgres}"
 POSTGRES_PASSWORD="${POSTGRES_PASSWORD:-postgres}"
 POSTGRES_DB="${POSTGRES_DB:-ragdb}"
-MODEL_NAME="${MODEL_NAME:-phi4-mini-instruct}"
+MODEL_NAME="${MODEL_NAME:-library/phi4-mini}"
 MODELSERVER_PORT="${MODELSERVER_PORT:-8888}"
 
 echo "================================================"
