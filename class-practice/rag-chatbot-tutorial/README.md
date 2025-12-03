@@ -21,24 +21,24 @@ This tutorial runs three containers in a single pod:
 │                  RAG Chatbot Pod                │
 ├─────────────────────────────────────────────────┤
 │                                                 │
-│  ┌──────────────────────────────────────────┐  │
-│  │  Streamlit UI (Port 8501)                │  │
-│  │  - File upload interface                 │  │
-│  │  - Chat interface                        │  │
-│  │  - Document processing                   │  │
-│  └──────────────────────────────────────────┘  │
+│  ┌──────────────────────────────────────────┐   │
+│  │  Streamlit UI (Port 8501)                │   │
+│  │  - File upload interface                 │   │
+│  │  - Chat interface                        │   │
+│  │  - Document processing                   │   │
+│  └──────────────────────────────────────────┘   │
 │                      ↓                          │
-│  ┌──────────────────────────────────────────┐  │
-│  │  PostgreSQL + pgvector                   │  │
-│  │  - Stores document embeddings            │  │
-│  │  - Vector similarity search              │  │
-│  └──────────────────────────────────────────┘  │
+│  ┌──────────────────────────────────────────┐   │
+│  │  PostgreSQL + pgvector                   │   │
+│  │  - Stores document embeddings            │   │
+│  │  - Vector similarity search              │   │
+│  └──────────────────────────────────────────┘   │
 │                      ↓                          │
-│  ┌──────────────────────────────────────────┐  │
-│  │  Ramalama Model Server (Port 8888)       │  │
-│  │  - Serves Phi4-mini-instruct             │  │
-│  │  - OpenAI-compatible API                 │  │
-│  └──────────────────────────────────────────┘  │
+│  ┌──────────────────────────────────────────┐   │
+│  │  Ramalama Model Server (Port 8888)       │   │
+│  │  - Serves Phi4-mini-instruct             │   │
+│  │  - OpenAI-compatible API                 │   │
+│  └──────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────┘
 ```
 
